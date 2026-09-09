@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쾨펜 기후 구분 맞히기 퀴즈</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 { margin-bottom: 10px; }
+    #map {
+      height: 500px;
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .quiz-card {
+      background: white;
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 860px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 150px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+    button:hover { background-color: #0056b3; }
+    #result-msg {
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>쾨펜 기후 구분 맞히기 퀴즈</h1>
+  <div id="map"></div>
+
+  <div class="quiz-card">
+    <h3>빨간 점이 찍힌 도시: <span id="city-name" style="color: #007bff;">?</span></h3>
+    <form onsubmit="handleFormSubmit(event)">
+      <input type="text" id="answer-input" placeholder="예: Am, Cfb, ET" autocomplete="off" autofocus>
+      <button type="submit">제출</button>
+    </form>
+    <div id="result-msg"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
